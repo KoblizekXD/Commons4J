@@ -21,4 +21,12 @@ public final class Colored {
         String temp = Integer.toHexString(color.getRGB());
         return "#" + temp.substring(temp.length() - 6);
     }
+    public String toEscapeSequence(boolean isBackground) {
+        return "\033["
+                + (isBackground ? "48" : "38")
+                + "2"
+                + color.getRed() + ";"
+                + color.getGreen() + ";"
+                + color.getBlue() + "m";
+    }
 }
