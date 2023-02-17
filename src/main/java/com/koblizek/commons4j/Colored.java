@@ -24,9 +24,13 @@ public final class Colored {
     public String toEscapeSequence(boolean isBackground) {
         return "\033["
                 + (isBackground ? "48" : "38")
-                + "2"
+                + ";2;"
                 + color.getRed() + ";"
                 + color.getGreen() + ";"
                 + color.getBlue() + "m";
+    }
+    public static final String RESET = "\033[39m\033[49m";
+    public static String getEscapedString(Color color, String text) {
+        return new Colored(color).toEscapeSequence(false) + text + RESET;
     }
 }
