@@ -1,5 +1,8 @@
 package com.koblizek.commons4j.time;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.Arrays;
 
 public class DateFormatter {
@@ -30,5 +33,8 @@ public class DateFormatter {
                     .append(format.toString());
         }
         return builder.substring(1);
+    }
+    public String toDate(LocalDate date) {
+        return date.format(DateTimeFormatter.ofPattern(toString()));
     }
 }
