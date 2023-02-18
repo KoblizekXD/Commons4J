@@ -1,6 +1,7 @@
 package com.koblizek.commons4j.time;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class TimeFormatter {
@@ -31,7 +32,16 @@ public class TimeFormatter {
         }
         return builder.substring(1);
     }
-    public String toDate(LocalDate date) {
-        return date.format(DateTimeFormatter.ofPattern(toString()));
+    public String toTime(LocalTime time) {
+        return time.format(DateTimeFormatter.ofPattern(toString()));
+    }
+    public String toTimeAM(LocalTime time) {
+        return time.format(DateTimeFormatter.ofPattern(this + " a"));
+    }
+    public static String predefined() {
+        return new TimeFormatter(":", hour(2), min(2), sec(2)).toTime(LocalTime.now());
+    }
+    public static String predefinedAM() {
+        return new TimeFormatter(":", hour(2), min(2), sec(2)).toTimeAM(LocalTime.now());
     }
 }
