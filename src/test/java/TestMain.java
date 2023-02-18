@@ -1,11 +1,8 @@
-import com.koblizek.commons4j.Colored;
-
-import java.awt.*;
-import java.lang.management.ClassLoadingMXBean;
-import java.lang.management.ManagementFactory;
+import com.koblizek.commons4j.time.DateFormatter;
+import static com.koblizek.commons4j.time.DateFormatter.*;
 
 public class TestMain {
     public static void main(String[] args) {
-        ManagementFactory.getClassLoadingMXBean().getLoadedClassCount()
+        System.out.println(new DateFormatter(":", day(2), month(2), year(4)));
     }
 }

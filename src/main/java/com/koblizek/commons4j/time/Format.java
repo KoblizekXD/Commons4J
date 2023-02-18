@@ -14,7 +14,7 @@ public class Format {
 
     @Override
     public String toString() {
-        return super.toString();
+        return together;
     }
 
     public int getLength() {

@@ -14,7 +14,7 @@ public class DateFormatter {
         return new Format(length, 'M');
     }
     public static Format year(int length) {
-        return new Format(length, 'd');
+        return new Format(length, 'y');
     }
 
     public DateFormatter(String splitter, Format ... formatting) {
@@ -24,8 +24,11 @@ public class DateFormatter {
 
     @Override
     public String toString() {
-        return Arrays.stream(formatting)
-                .map(format -> splitter + format.toString())
-                .toString().substring(1);
+        StringBuilder builder = new StringBuilder();
+        for (Format format : formatting) {
+            builder.append(splitter)
+                    .append(format.toString());
+        }
+        return builder.substring(1);
     }
 }
